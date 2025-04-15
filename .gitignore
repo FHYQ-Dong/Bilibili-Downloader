@@ -1,0 +1,14 @@
+# python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+
+# MACOSX
+.DS_Store
+__MACOSX/
+
+# secrets
+data/
