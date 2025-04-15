@@ -178,8 +178,6 @@ class BLDownloader(BLAuth, MultiThreadDownloader):
                 resp = self.get(url)
                 resp.encoding = 'utf-8'
                 html = etree.HTML(resp.text)
-                with open('html.html', 'w', encoding='utf-8') as f:
-                    f.write(resp.text)
                 avurls = [s for s in html.xpath('//head[@itemprop="video"]/script/text()') if 'window.__playinfo__' in s][0].replace('window.__playinfo__=','')
                 avurls = json.loads(avurls)
                 video_url = avurls['data']['dash']['video'][0]['baseUrl']

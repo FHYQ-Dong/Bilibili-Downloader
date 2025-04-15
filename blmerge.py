@@ -42,10 +42,11 @@ class BLMerger():
             raise ValueError("All inputs must be either lists or strings.")
         
     def merge(self, video_path, audio_path, output_path):
-        subprocess.call(
+        subprocess.Popen(
             [self.ffmpeg_path, "-i", video_path, "-i", audio_path, "-c:v", "copy", "-c:a", "copy", output_path, "-y"],
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE
+            stderr=subprocess.PIPE,
+            shell=True
         )
         
 if __name__ == "__main__":
